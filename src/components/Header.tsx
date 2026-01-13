@@ -1,7 +1,7 @@
 import { Button } from "@radix-ui/themes";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../features/auth/authSlice";
-import { RootState } from "../app/store";
+import type { RootState } from "../app/store";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {

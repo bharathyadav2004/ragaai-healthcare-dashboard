@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../features/auth/authSlice";
-import { RootState } from "../app/store";
+import type { RootState } from "../app/store";
+
 import { useNavigate } from "react-router-dom";
 import { Button, TextField, Card } from "@radix-ui/themes";
 

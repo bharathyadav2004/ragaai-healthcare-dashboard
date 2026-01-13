@@ -1,10 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import authData from "../../data/auth.json";
 
 interface AuthState {
   isAuthenticated: boolean;
   user: string | null;
   error: string | null;
+}
+
+interface LoginPayload {
+  email: string;
+  password: string;
 }
 
 const initialState: AuthState = {
@@ -17,7 +22,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    login: (state, action) => {
+    login: (state: AuthState, action: PayloadAction<LoginPayload>) => {
       const { email, password } = action.payload;
 
       if (email === authData.email && password === authData.password) {
@@ -28,7 +33,7 @@ const authSlice = createSlice({
         state.error = "Invalid credentials";
       }
     },
-    logout: (state) => {
+    logout: (state: AuthState) => {
       state.isAuthenticated = false;
       state.user = null;
     },
